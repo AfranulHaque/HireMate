@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate", "HireMate\HireMate.csproj", "{ED59AF10-10FE-427F-BCB5-27127A27F4E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackGround Service", "BackGround Service", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.DI", "HireMate.DI\HireMate.DI.csproj", "{59756686-B54A-4E0F-938C-7543321BD005}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hiremate.Background.Scheduler", "Hiremate.background.schedule\Hiremate.Background.Scheduler.csproj", "{70120B81-4AE2-4A9C-82E7-1A4DE4B8F0BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Notification.Unified.Imp", "HireMate.Notification.Unified.Imp\HireMate.Notification.Unified.Imp.csproj", "{009770C5-D270-470A-A2AD-E5FD15F80024}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Notification.Unified.Interface", "BackGroundService\HireMate.Notification.Unified.Interface\HireMate.Notification.Unified.Interface.csproj", "{B8187200-5A41-4F38-A34D-B18E6B24AC6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User Access Layer", "User Access Layer", "{4E1AA927-5A7D-42E5-8559-1A230BEFA5D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{D5268771-CCEC-430A-A02F-7807F42DC4D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business layer", "Business layer", "{1B28D0B8-3E23-4093-83E0-9C0EEB2E0FCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Transfer Object", "Data Transfer Object", "{1A18029A-5D09-4601-B43C-830592BD28E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Model.Domain", "DataTransferObject\HireMate.Model.Domain\HireMate.Model.Domain.csproj", "{3700F1EB-03AF-44D8-8A43-01116135ADB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Model.Web", "HireMate.Model.Web\HireMate.Model.Web.csproj", "{A790C7D4-8739-45CF-A1E0-68955E81F9D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED59AF10-10FE-427F-BCB5-27127A27F4E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED59AF10-10FE-427F-BCB5-27127A27F4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED59AF10-10FE-427F-BCB5-27127A27F4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED59AF10-10FE-427F-BCB5-27127A27F4E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59756686-B54A-4E0F-938C-7543321BD005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59756686-B54A-4E0F-938C-7543321BD005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59756686-B54A-4E0F-938C-7543321BD005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59756686-B54A-4E0F-938C-7543321BD005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70120B81-4AE2-4A9C-82E7-1A4DE4B8F0BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70120B81-4AE2-4A9C-82E7-1A4DE4B8F0BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70120B81-4AE2-4A9C-82E7-1A4DE4B8F0BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70120B81-4AE2-4A9C-82E7-1A4DE4B8F0BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{009770C5-D270-470A-A2AD-E5FD15F80024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{009770C5-D270-470A-A2AD-E5FD15F80024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{009770C5-D270-470A-A2AD-E5FD15F80024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{009770C5-D270-470A-A2AD-E5FD15F80024}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8187200-5A41-4F38-A34D-B18E6B24AC6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8187200-5A41-4F38-A34D-B18E6B24AC6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8187200-5A41-4F38-A34D-B18E6B24AC6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8187200-5A41-4F38-A34D-B18E6B24AC6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3700F1EB-03AF-44D8-8A43-01116135ADB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3700F1EB-03AF-44D8-8A43-01116135ADB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3700F1EB-03AF-44D8-8A43-01116135ADB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3700F1EB-03AF-44D8-8A43-01116135ADB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A790C7D4-8739-45CF-A1E0-68955E81F9D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A790C7D4-8739-45CF-A1E0-68955E81F9D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A790C7D4-8739-45CF-A1E0-68955E81F9D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A790C7D4-8739-45CF-A1E0-68955E81F9D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ED59AF10-10FE-427F-BCB5-27127A27F4E6} = {4E1AA927-5A7D-42E5-8559-1A230BEFA5D7}
+		{70120B81-4AE2-4A9C-82E7-1A4DE4B8F0BF} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{009770C5-D270-470A-A2AD-E5FD15F80024} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{B8187200-5A41-4F38-A34D-B18E6B24AC6B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{3700F1EB-03AF-44D8-8A43-01116135ADB5} = {1A18029A-5D09-4601-B43C-830592BD28E0}
+		{A790C7D4-8739-45CF-A1E0-68955E81F9D7} = {1A18029A-5D09-4601-B43C-830592BD28E0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {149E5DFB-41C0-468B-8658-CE81D4288E9D}
+	EndGlobalSection
+EndGlobal
