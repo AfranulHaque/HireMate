@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35828.75 d17.13
+VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate", "HireMate\HireMate.csproj", "{ED59AF10-10FE-427F-BCB5-27127A27F4E6}"
 EndProject
@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Notification.Unifi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Notification.Unified.Interface", "BackGroundService\HireMate.Notification.Unified.Interface\HireMate.Notification.Unified.Interface.csproj", "{B8187200-5A41-4F38-A34D-B18E6B24AC6B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User Access Layer", "User Access Layer", "{4E1AA927-5A7D-42E5-8559-1A230BEFA5D7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI Layer", "UI Layer", "{4E1AA927-5A7D-42E5-8559-1A230BEFA5D7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{D5268771-CCEC-430A-A02F-7807F42DC4D8}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Model.Domain", "DataTransferObject\HireMate.Model.Domain\HireMate.Model.Domain.csproj", "{3700F1EB-03AF-44D8-8A43-01116135ADB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Model.Web", "HireMate.Model.Web\HireMate.Model.Web.csproj", "{A790C7D4-8739-45CF-A1E0-68955E81F9D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.DataManagement", "HireMate.DataManagement\HireMate.DataManagement.csproj", "{E152D46B-2603-489A-9D31-61EC83B07ABE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{A790C7D4-8739-45CF-A1E0-68955E81F9D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A790C7D4-8739-45CF-A1E0-68955E81F9D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A790C7D4-8739-45CF-A1E0-68955E81F9D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E152D46B-2603-489A-9D31-61EC83B07ABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E152D46B-2603-489A-9D31-61EC83B07ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E152D46B-2603-489A-9D31-61EC83B07ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E152D46B-2603-489A-9D31-61EC83B07ABE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{B8187200-5A41-4F38-A34D-B18E6B24AC6B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{3700F1EB-03AF-44D8-8A43-01116135ADB5} = {1A18029A-5D09-4601-B43C-830592BD28E0}
 		{A790C7D4-8739-45CF-A1E0-68955E81F9D7} = {1A18029A-5D09-4601-B43C-830592BD28E0}
+		{E152D46B-2603-489A-9D31-61EC83B07ABE} = {D5268771-CCEC-430A-A02F-7807F42DC4D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {149E5DFB-41C0-468B-8658-CE81D4288E9D}
