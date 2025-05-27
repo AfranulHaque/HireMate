@@ -1,4 +1,6 @@
-﻿using Quartz;
+﻿using HireMate.Common;
+using Microsoft.Extensions.Options;
+using Quartz;
 
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Calendar.v3;
@@ -10,6 +12,13 @@ namespace Hiremate.Background.Scheduler.BackGroundProcessor
 {
     public class DummyJob : IJob
     {
+        private readonly AppSettings _appSettings;
+
+        public DummyJob(IOptions<AppSettings> appSettings)
+        {
+            _appSettings = appSettings.Value;
+        }
+
         public async Task Execute(IJobExecutionContext context)
        {
 
