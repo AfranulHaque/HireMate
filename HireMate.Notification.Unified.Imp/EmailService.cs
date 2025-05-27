@@ -10,12 +10,14 @@ using Ical.Net.CalendarComponents;
 using HireMate.Common;
 using Microsoft.Extensions.Options;
 using HireMate.Common.Utils;
+using HireMate.DataManagement.Repositories;
 
 namespace HireMate.Notification.Unified.Imp
 {
     public class EmailService : IEmailService
     {
         private readonly SmtpSettings _settings;
+        public readonly IEventRepository _eventRepository;
 
         public EmailService(IOptions<SmtpSettings> options)
         {

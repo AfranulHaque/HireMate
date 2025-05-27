@@ -9,6 +9,9 @@ namespace HireMate.DataManagement.Repositories
 {
     public interface IEventRepository : IRepository<EmployeeEvent, long>
     {
-        Task<Employee> GetEmployeeById();
+        Task<IList<Employee>> GetEmployees();
+        Task<EmployeeEvent> GetEmployeeEvent();
+        Task<List<Applicant>> GetNewApplicants();
+        Task<List<Applicant>> GetSortedApplicants();
     }
 }
