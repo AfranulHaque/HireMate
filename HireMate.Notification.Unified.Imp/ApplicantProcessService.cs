@@ -28,7 +28,7 @@ namespace HireMate.Notification.Unified.Imp
                 var file = Utility.ExtractTextFromPDF(applicant.ResumeFilePath);
                 var isEligible = await _agentService.IsCandidateEligable(applicant.JobPost.Description, file);
                 applicant.IsShortlisted = isEligible;
-                applicant.IsProcessCompleted = !isEligible;
+                applicant.IsRejected = !isEligible;
             }
             await _eventRepository.SaveChangesAsync();
         }
