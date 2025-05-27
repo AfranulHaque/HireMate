@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireMate.Notification.Unified.Imp
+namespace HireMate.Notification.Unified.Interface
 {
-    interface ICalendarAvailabilityChecker
+    public interface ICalendarAvailabilityChecker
     {
         void GetFreeBusyAsync();
     }

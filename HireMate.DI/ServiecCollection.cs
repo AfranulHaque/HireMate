@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using HireMate.Common;
 using Microsoft.Extensions.Options;
+using HireMate.Notification.Unified.Imp;
+using HireMate.Notification.Unified.Interface;
 
 
 namespace HireMate.DI
@@ -27,7 +29,7 @@ namespace HireMate.DI
         {
             return services;
         }
-        
+
         public static IServiceCollection AddPersistenceCollection(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
@@ -37,9 +39,11 @@ namespace HireMate.DI
 
             return services;
         }
-        
+
         public static IServiceCollection AddServiceCollection(this IServiceCollection services)
         {
+            services.AddScoped<ICalendarAvailabilityChecker, CalendarAvailabilityChecker>();
+
             services.AddScoped<Hiremate.AiAgent.Service.Interface.IAgentService, AgentService>();
             return services;
         }
