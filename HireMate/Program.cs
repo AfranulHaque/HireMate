@@ -9,10 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddPersistenceCollection(builder.Configuration);
-var app = builder.Build();
-
 builder.Services.AddExternalCollections();
 builder.Services.AddConfigCollections(builder.Configuration);
+
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
