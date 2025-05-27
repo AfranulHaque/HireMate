@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HireMate.Notification.Unified.Imp
+namespace HireMate.Notification.Unified.Interface
 {
-    interface IEmailListenerService
+    public interface IApplicantProcessService
     {
-        void CheckInboxAsync();
+        Task ShortListApplicant();
     }
 }

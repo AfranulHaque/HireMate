@@ -9,6 +9,7 @@ namespace HireMate.DataManagement
             : base(options) { }
 
         public DbSet<Entities.Employee> Employees { get; set; }
+        public DbSet<Entities.EmployeeEvent> EmployeeEvents { get; set; }
         public DbSet<Entities.JobPost> JobPosts { get; set; }
         public DbSet<Entities.Applicant> Applicants { get; set; }
 
@@ -17,6 +18,7 @@ namespace HireMate.DataManagement
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             modelBuilder.ApplyConfiguration(new ApplicantConfiguration());
             modelBuilder.ApplyConfiguration(new JobPostConfiguration());
+            modelBuilder.ApplyConfiguration(new EmployeeEventConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }

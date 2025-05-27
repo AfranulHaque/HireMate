@@ -10,5 +10,8 @@
         public string Designation { get; set; }
         public DateTime HireDate { get; set; }
         public string? SkillSetDetails { get; set; }
+
+        public ICollection<EmployeeEvent> EmployeeEvents { get; set; } = new List<EmployeeEvent>();
+
     }
 }
