@@ -6,10 +6,9 @@ using HireMate.DataManagement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using HireMate.Common;
-using Microsoft.Extensions.Options;
 using HireMate.Notification.Unified.Imp;
 using HireMate.Notification.Unified.Interface;
+using HireMate.DataManagement.Repositories;
 
 
 namespace HireMate.DI
@@ -21,6 +20,7 @@ namespace HireMate.DI
         {
             services.Configure<AppSettings>(configuration.GetSection("AppSettings"));
             services.Configure<AiModel>(configuration.GetSection("AiModel"));
+            services.Configure<SmtpSettings>(configuration.GetSection("SmtpSettings"));
             return services;
         }
 
@@ -35,7 +35,9 @@ namespace HireMate.DI
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<HireMateDBContext>(options =>
-                options.UseSqlServer(connectionString));
+            options.UseSqlServer(connectionString));
+
+            services.AddScoped<IEventRepository, EventRepository>();
 
             return services;
         }
