@@ -8,6 +8,7 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddExternalCollections();
+builder.Services.AddServiceCollection();
 builder.Services.AddConfigCollections(builder.Configuration);
 var app = builder.Build();
 // Configure the HTTP request pipeline.

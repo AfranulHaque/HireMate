@@ -1,4 +1,6 @@
 ﻿using System.Runtime;
+using AgentApi.Interface;
+using Hiremate.AiAgent.Service.Service;
 using HireMate.Common;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,7 +33,7 @@ namespace HireMate.DI
         
         public static IServiceCollection AddServiceCollection(this IServiceCollection services)
         {
-          
+            services.AddScoped<Hiremate.AiAgent.Service.Interface.IAgentService, AgentService>();
             return services;
         }
     }
