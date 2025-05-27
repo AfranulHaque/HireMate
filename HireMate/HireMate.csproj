@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\HireMate.Common\HireMate.Common.csproj" />
     <ProjectReference Include="..\HireMate.DI\HireMate.DI.csproj" />
+    <ProjectReference Include="..\HireMate.Service\HireMate.Service.csproj" />
   </ItemGroup>
 
 </Project>

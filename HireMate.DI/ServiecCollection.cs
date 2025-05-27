@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using HireMate.Notification.Unified.Imp;
 using HireMate.Notification.Unified.Interface;
 using HireMate.DataManagement.Repositories;
+using HireMate.Service;
 
 
 namespace HireMate.DI
@@ -45,8 +46,8 @@ namespace HireMate.DI
         public static IServiceCollection AddServiceCollection(this IServiceCollection services)
         {
             services.AddScoped<ICalendarAvailabilityChecker, CalendarAvailabilityChecker>();
-
             services.AddScoped<Hiremate.AiAgent.Service.Interface.IAgentService, AgentService>();
+            services.AddScoped<IJobService, JobService>();
             return services;
         }
     }
