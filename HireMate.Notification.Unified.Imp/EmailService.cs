@@ -25,7 +25,7 @@ namespace HireMate.Notification.Unified.Imp
             _settings = options.Value;
         }
 
-        public async Task SendEmailWithIcsAsync(string toEmail, string subject, string body, string icsContent)
+        public async Task SendEmailWithIcsAsync(string toEmail, string subject, string body, string icsContent = null)
         {
             try
             {
@@ -39,10 +39,14 @@ namespace HireMate.Notification.Unified.Imp
 
                 mailMessage.To.Add(toEmail);
 
-                byte[] icsBytes = Encoding.UTF8.GetBytes(icsContent);
-                var icsAttachment = new Attachment(new MemoryStream(icsBytes), "invite.ics", "text/calendar");
+                if (!string.IsNullOrEmpty(icsContent))
+                {
+                    byte[] icsBytes = Encoding.UTF8.GetBytes(icsContent);
+                    var icsAttachment = new Attachment(new MemoryStream(icsBytes), "invite.ics", "text/calendar");
 
-                mailMessage.Attachments.Add(icsAttachment);
+                    mailMessage.Attachments.Add(icsAttachment);
+                }
+
 
                 //using var smtpClient = new SmtpClient(_settings.Host, _settings.Port)
                 //{

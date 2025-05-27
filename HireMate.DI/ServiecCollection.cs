@@ -48,6 +48,7 @@ namespace HireMate.DI
             services.AddScoped<IInterviewNotificationService, InterviewNotificationService>();
             services.AddScoped<IApplicantProcessService, ApplicantProcessService>();
             services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IRejectedNotificationService, RejectedNotificationService>();
 
             services.AddScoped<Hiremate.AiAgent.Service.Interface.IAgentService, AgentService>();
             return services;

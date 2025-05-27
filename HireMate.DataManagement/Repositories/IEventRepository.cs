@@ -13,5 +13,6 @@ namespace HireMate.DataManagement.Repositories
         Task<EmployeeEvent> GetEmployeeEvent();
         Task<List<Applicant>> GetNewApplicants();
         Task<List<Applicant>> GetSortedApplicants();
+        Task<List<Applicant>> GetRejectedApplicants();
     }
 }

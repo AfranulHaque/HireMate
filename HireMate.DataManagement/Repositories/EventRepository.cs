@@ -36,8 +36,15 @@ namespace HireMate.DataManagement.Repositories
 
         public async Task<List<Applicant>> GetSortedApplicants()
         {
-            return await GetEntity<Applicant>()
+            return await GetEntity<Applicant>().Include(_ => _.JobPost)
                 .Where(_ => !_.IsProcessCompleted && _.IsShortlisted)
+                .ToListAsync();
+        }
+
+        public async Task<List<Applicant>> GetRejectedApplicants()
+        {
+            return await GetEntity<Applicant>().Include(_ => _.JobPost)
+                .Where(_ => !_.IsProcessCompleted && _.IsRejected)
                 .ToListAsync();
         }
     }

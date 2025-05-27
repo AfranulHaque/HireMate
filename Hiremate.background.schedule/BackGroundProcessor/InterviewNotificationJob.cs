@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HireMate.Notification.Unified.Imp;
 using HireMate.Notification.Unified.Interface;
 using Quartz;
 
@@ -12,15 +13,18 @@ namespace Hiremate.Background.Scheduler.BackGroundProcessor
     public class InterviewNotificationJob : IJob
     {
         private readonly IInterviewNotificationService _interviewNotificationService;
-        public InterviewNotificationJob(IInterviewNotificationService interviewNotificationService)
+        private readonly IRejectedNotificationService _rejectedNotificationService;
+        public InterviewNotificationJob(IInterviewNotificationService interviewNotificationService, IRejectedNotificationService rejectedNotificationService)
         {
             _interviewNotificationService = interviewNotificationService;
+            _rejectedNotificationService = rejectedNotificationService;
         }
         public async Task Execute(IJobExecutionContext context)
         {
             try
             {
                 await _interviewNotificationService.SendShortlistAndAvailabilityEmailsAsync();
+                await _rejectedNotificationService.SendRejectedEmail();
             }
             catch (Exception ex )
             {
