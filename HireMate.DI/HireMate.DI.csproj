@@ -19,11 +19,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BackGroundService\HireMate.Notification.Unified.Interface\HireMate.Notification.Unified.Interface.csproj" />
+    <ProjectReference Include="..\AgentApi\AgentApi.csproj" />
     <ProjectReference Include="..\Common\HireMate.Common\HireMate.Common.csproj" />
+    <ProjectReference Include="..\Hiremate.AiAgent.Service\Hiremate.AiAgent.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\HireMate.DataManagement\HireMate.DataManagement.csproj" />
+    <ProjectReference Include="..\HireMate.Notification.Unified.Imp\HireMate.Notification.Unified.Imp.csproj" />
   </ItemGroup>
 
 </Project>
