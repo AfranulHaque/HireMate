@@ -13,4 +13,8 @@
     <PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.14.0" />
     <PackageReference Include="Quartz.Extensions.Hosting" Version="3.14.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HireMate.DI\HireMate.DI.csproj" />
+  </ItemGroup>
 </Project>

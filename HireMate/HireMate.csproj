@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Common\HireMate.Common\HireMate.Common.csproj" />
+    <ProjectReference Include="..\HireMate.DI\HireMate.DI.csproj" />
+  </ItemGroup>
+
 </Project>
