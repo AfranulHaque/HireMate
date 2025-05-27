@@ -10,4 +10,8 @@
     <PackageReference Include="itext7" Version="9.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\HireMate.DataManagement\HireMate.DataManagement.csproj" />
+  </ItemGroup>
+
 </Project>
