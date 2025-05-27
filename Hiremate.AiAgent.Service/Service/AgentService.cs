@@ -100,7 +100,7 @@ namespace Hiremate.AiAgent.Service.Service
                 dynamic responseData = JsonConvert.DeserializeObject(responseBody);
                 string assistantMessage = responseData?.choices[0]?.message?.content;
                 var employeeIds = new List<int>();
-                if(assistantMessage != null)
+                if(!string.IsNullOrWhiteSpace(assistantMessage))
                 {
                     var ids = assistantMessage.Split(',');
                     foreach(var id in ids)
