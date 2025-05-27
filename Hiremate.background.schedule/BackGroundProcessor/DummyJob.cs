@@ -7,6 +7,8 @@ using Google.Apis.Calendar.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using System;
+using HireMate.Notification.Unified.Interface;
+using HireMate.Notification.Unified.Imp;
 using Hiremate.AiAgent.Service.Interface;
 
 namespace Hiremate.Background.Scheduler.BackGroundProcessor
