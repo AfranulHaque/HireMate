@@ -9,25 +9,25 @@ using Google.Apis.Util.Store;
 using System;
 using HireMate.Notification.Unified.Interface;
 using HireMate.Notification.Unified.Imp;
+using Hiremate.AiAgent.Service.Interface;
 
 namespace Hiremate.Background.Scheduler.BackGroundProcessor
 {
     public class DummyJob : IJob
     {
         private readonly AppSettings _appSettings;
-        private readonly ICalendarAvailabilityChecker _calendarAvailabilityChecker;
+        private readonly IAgentService _agentService;
 
-        public DummyJob(IOptions<AppSettings> appSettings, ICalendarAvailabilityChecker calendarAvailabilityChecker)
+        public DummyJob(IOptions<AppSettings> appSettings, IAgentService agentService)
         {
             _appSettings = appSettings.Value;
-            _calendarAvailabilityChecker = calendarAvailabilityChecker;
+            _agentService = agentService;
         }
-
+        const string jobd = "We are seeking a skilled .NET Developer with 3 years of hands-on experience in developing and maintaining web applications using C#, ASP.NET Core, and Entity Framework. The ideal candidate should have a solid understanding of RESTful APIs, SQL Server, and software development best practices. Experience with front-end technologies like JavaScript or React is a plus. You will collaborate with cross-functional teams to deliver scalable, high-performance solutions. Strong problem-solving skills and a passion for clean, maintainable code are essential.";
+        const string jobe = "Skilled Java Developer with 3 years of experience in designing, developing, and maintaining scalable applications using Java, Spring Boot, and Hibernate. Proficient in building RESTful APIs, working with relational databases like MySQL and PostgreSQL, and integrating third-party services. Experienced in applying object-oriented design principles, unit testing with JUnit, and using version control tools like Git. Familiar with microservices architecture and containerization using Docker. Adept at working in agile environments and collaborating closely with cross-functional teams. Strong problem-solving abilities, attention to code quality, and a commitment to continuous learning and delivering high-performance, maintainable solutions. But paralally worked on asp.net with two profetional project";
         public async Task Execute(IJobExecutionContext context)
-        {
-
-            _calendarAvailabilityChecker.GetFreeBusyAsync();
-
+       {
+            await _agentService.IsCandidateEligable(jobd, jobe);
             //var scopes = new[] { CalendarService.Scope.CalendarReadonly };
             //UserCredential credential;
 
