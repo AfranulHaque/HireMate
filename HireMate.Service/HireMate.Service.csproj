@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\HireMate.Common\HireMate.Common.csproj" />
+    <ProjectReference Include="..\Hiremate.AiAgent.Service\Hiremate.AiAgent.Service.csproj" />
   </ItemGroup>
 
 </Project>

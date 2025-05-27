@@ -34,6 +34,36 @@ namespace Hiremate.AiAgent.Service.Service
         
         Your output will be a string where only comma seperated employeeId will be there.
         The output must be comma seperated suitable employeeId.";
+
+        private const string JobPostJson = @"
+        {
+          ""jobPostId"": 0,
+          ""title"": """",
+          ""description"": """",
+          ""location"": """",
+          ""requirements"": null,
+          ""benefits"": null,
+          ""companyName"": null,
+          ""contactEmail"": null,
+          ""postedDate"": ""0001-01-01T00:00:00"",
+          ""expiryDate"": null,
+          ""isActive"": false,
+          ""processInfo"": ""Filling up the jobpost form. Please wait...""
+        }";
+
+        private const string JobPostBasePrompt = @"You are an ai assistant designed continue chat based on user propmt.
+        Your goal is to:
+        - Help user to create job post based on user given information.
+        - When user ask only to fill up form or complete jobpost form or filling form then you only response with a single json (jobPostJson).
+        - Other wise continue with normal conversion.
+        - in json processInfo property default value will be fixed.
+        - you have a json skeleton (JobPostJson).
+        - job post response shoud be follow JobPostJson property values
+
+        You will take prompt from the user. The user will provide the basic information about job post. 
+        
+        Your output will be When user ask only to fill up form or complete jobpost form or filling form then you only response with a single json (jobPostJson).
+        Other wise continue with normal conversion.";
         //private const string CandidateEligableEndingPrompt = "";
 
         public AgentService(IOptions<AppSettings> options, IOptions<AiModel> aiModel)
@@ -100,10 +130,10 @@ namespace Hiremate.AiAgent.Service.Service
                 dynamic responseData = JsonConvert.DeserializeObject(responseBody);
                 string assistantMessage = responseData?.choices[0]?.message?.content;
                 var employeeIds = new List<int>();
-                if(!string.IsNullOrWhiteSpace(assistantMessage))
+                if (!string.IsNullOrWhiteSpace(assistantMessage))
                 {
                     var ids = assistantMessage.Split(',');
-                    foreach(var id in ids)
+                    foreach (var id in ids)
                     {
                         try
                         {
@@ -122,6 +152,58 @@ namespace Hiremate.AiAgent.Service.Service
             catch (Exception ex)
             {
                 return new List<int>();
+            }
+
+        }
+
+        public async Task<JobPostAssistantDto> JobPostAssistant(JobPostAssistantDto jobPostAssistantDto)
+        {
+            
+            var messageList = new List<Message>();
+            messageList.Add(new Message { role = "system", content = JobPostBasePrompt });
+            messageList.Add(new Message { role = "system", content = $"Json structure: {JobPostJson}" });
+            foreach(var chat in jobPostAssistantDto.Conversation)
+            {
+                messageList.Add(new Message { role = chat.Role == 1?"assistant":"user", content = chat.Message });
+            }
+            
+            
+            //messageList.Add(new Message { role = "user", content = $"employees: {employees}" });
+
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _appSettings.ApiKey);
+            client.DefaultRequestHeaders.Add("HTTP-Referer", "http://localhost.com"); // Replace with your site or localhost
+            client.DefaultRequestHeaders.Add("X-Title", "HireMate");
+
+            var requestBody = new
+            {
+                model = _aiModel.Gpt,
+                messages = messageList
+            };
+            var responsDto = new JobPostAssistantDto();
+            var content = new StringContent(JsonConvert.SerializeObject(requestBody), Encoding.UTF8, "application/json");
+            try
+            {
+                var response = await client.PostAsync(_appSettings.ApiBaseUrl, content);
+                response.EnsureSuccessStatusCode();
+
+                var responseBody = await response.Content.ReadAsStringAsync();
+                dynamic responseData = JsonConvert.DeserializeObject(responseBody);
+                string assistantMessage = responseData?.choices[0]?.message?.content;
+
+                //JobPost job = JsonConvert.DeserializeObject<JobPost>(assistantMessage);
+
+                jobPostAssistantDto.Conversation.Add(new Chat
+                {
+                    Role = 1,
+                    Message = assistantMessage
+                });
+
+                return jobPostAssistantDto;
+            }
+            catch (Exception ex)
+            {
+                return jobPostAssistantDto;
             }
 
         }
