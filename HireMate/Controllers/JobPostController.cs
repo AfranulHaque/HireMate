@@ -1,4 +1,4 @@
-﻿using HireMate.Model.Domain;
+﻿using HireMate.Common;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HireMate.Controllers
