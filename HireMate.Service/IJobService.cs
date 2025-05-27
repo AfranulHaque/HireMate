@@ -5,6 +5,9 @@ namespace HireMate.Service
 {
     public interface IJobService
     {
-        Task ApplyForJobAsync(Applicant applicant);
+        Task SaveApplicantDataAsync(Applicant applicant);
+        Task<List<JobPost>> GetAllActiveJobPostAsync();
+        Task GetJobPostByIdAsync(int jobPostId);
+        Task AddJobPostAsync(JobPost jobPost);
     }
 }

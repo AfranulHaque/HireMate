@@ -40,6 +40,18 @@
                     <textarea asp-for="Benefits" class="form-control"></textarea>
                     <span asp-validation-for="Benefits" class="text-danger"></span>
                 </div>
+                <!-- Calendar fields start here -->
+                <div class="mb-3">
+                    <label asp-for="PostedDate" class="form-label">Job Post Date</label>
+                    <input asp-for="PostedDate" class="form-control" type="date" />
+                    <span asp-validation-for="PostedDate" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ExpiryDate" class="form-label">Expiry Date</label>
+                    <input asp-for="ExpiryDate" class="form-control" type="date" />
+                    <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                </div>
+                <!-- Calendar fields end here -->
                 <button type="submit" class="btn btn-primary">Create</button>
             </form>
         </div>
