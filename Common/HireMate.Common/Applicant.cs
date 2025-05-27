@@ -7,10 +7,10 @@ namespace HireMate.Common
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        public string ResumeFilePath { get; set; }
+        public string? ResumeFilePath { get; set; }
         public DateTime ApplicationDate { get; set; }
-        public bool IsShortlisted { get; set; }
-        public bool IsHired { get; set; }
+        public bool IsShortlisted { get; set; } = false;
+        public bool IsHired { get; set; } = false;
         public int JobPostId { get; set; }
     }
 }

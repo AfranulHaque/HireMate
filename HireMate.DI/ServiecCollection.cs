@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using HireMate.Notification.Unified.Imp;
 using HireMate.Notification.Unified.Interface;
 using HireMate.DataManagement.Repositories;
+using HireMate.Service;
 
 
 namespace HireMate.DI
@@ -51,6 +52,7 @@ namespace HireMate.DI
             services.AddScoped<IRejectedNotificationService, RejectedNotificationService>();
 
             services.AddScoped<Hiremate.AiAgent.Service.Interface.IAgentService, AgentService>();
+            services.AddScoped<IJobService, JobService>();
             return services;
         }
     }

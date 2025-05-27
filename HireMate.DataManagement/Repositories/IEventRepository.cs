@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HireMate.DataManagement.Entities;
+﻿using HireMate.DataManagement.Entities;
 
 namespace HireMate.DataManagement.Repositories
 {
@@ -14,5 +9,6 @@ namespace HireMate.DataManagement.Repositories
         Task<List<Applicant>> GetNewApplicants();
         Task<List<Applicant>> GetSortedApplicants();
         Task<List<Applicant>> GetRejectedApplicants();
+        Task AddApplicant(Applicant applicant);
     }
 }

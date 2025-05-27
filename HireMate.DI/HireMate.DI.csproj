@@ -28,6 +28,7 @@
   <ItemGroup>
     <ProjectReference Include="..\HireMate.DataManagement\HireMate.DataManagement.csproj" />
     <ProjectReference Include="..\HireMate.Notification.Unified.Imp\HireMate.Notification.Unified.Imp.csproj" />
+    <ProjectReference Include="..\HireMate.Service\HireMate.Service.csproj" />
   </ItemGroup>
 
 </Project>

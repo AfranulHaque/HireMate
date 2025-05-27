@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Common.Utils", "Hi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileRead-test", "FileRead-test\FileRead-test.csproj", "{47244E35-002B-45F9-B2CB-9A777F8EA21A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Service", "HireMate.Service\HireMate.Service.csproj", "{67E03BC0-2A7F-493F-8BF2-F10CFCC67DAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{47244E35-002B-45F9-B2CB-9A777F8EA21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47244E35-002B-45F9-B2CB-9A777F8EA21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47244E35-002B-45F9-B2CB-9A777F8EA21A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67E03BC0-2A7F-493F-8BF2-F10CFCC67DAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E03BC0-2A7F-493F-8BF2-F10CFCC67DAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E03BC0-2A7F-493F-8BF2-F10CFCC67DAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E03BC0-2A7F-493F-8BF2-F10CFCC67DAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +100,7 @@ Global
 		{B8187200-5A41-4F38-A34D-B18E6B24AC6B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{029ABD3A-2AA5-42A9-BCE6-ABBA896370C8} = {4A9224C6-CE32-4A81-B417-A6F6C76D6E49}
 		{F5C19885-2C1A-4CEC-9A00-7A098E5E7D5F} = {4A9224C6-CE32-4A81-B417-A6F6C76D6E49}
+		{67E03BC0-2A7F-493F-8BF2-F10CFCC67DAC} = {1B28D0B8-3E23-4093-83E0-9C0EEB2E0FCB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {149E5DFB-41C0-468B-8658-CE81D4288E9D}
