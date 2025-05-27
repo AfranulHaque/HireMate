@@ -1,0 +1,36 @@
+﻿@model IEnumerable<HireMate.Model.Domain.JobPost>
+
+@{
+    ViewData["Title"] = "Job Posts";
+}
+
+<h2>Job Posts</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Post Date</th>
+            <th>End Date</th>
+        </tr>
+    </thead>
+    <tbody>
+    @if (Model != null && Model.Any())
+    {
+        foreach (var post in Model)
+        {
+            <tr>
+                <td>@post.Title</td>
+                <td>@post.PostedDate.ToString("yyyy-MM-dd")</td>
+                <td>@(post.ExpiryDate?.ToString("yyyy-MM-dd") ?? "N/A")</td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="3" class="text-center">No job posts found.</td>
+        </tr>
+    }
+    </tbody>
+</table>

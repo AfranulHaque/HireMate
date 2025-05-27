@@ -28,6 +28,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Model.Web", "HireMate.Model.Web\HireMate.Model.Web.csproj", "{A790C7D4-8739-45CF-A1E0-68955E81F9D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.DataManagement", "HireMate.DataManagement\HireMate.DataManagement.csproj", "{E152D46B-2603-489A-9D31-61EC83B07ABE}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ai Agents", "Ai Agents", "{4A9224C6-CE32-4A81-B417-A6F6C76D6E49}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentApi", "AgentApi\AgentApi.csproj", "{029ABD3A-2AA5-42A9-BCE6-ABBA896370C8}"
