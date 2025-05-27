@@ -1,3 +1,4 @@
+using System.Reflection.Emit;
 using HireMate.DataManagement.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -32,7 +33,12 @@ namespace HireMate.DataManagement.EntityConfigurations
                 .IsRequired();
 
             builder.Property(e => e.SkillSetDetails)
-                .HasMaxLength(1000);
+            .HasMaxLength(1000);
+
+            builder.HasMany(e => e.EmployeeEvents)
+                   .WithOne(ev => ev.Employee)
+                   .HasForeignKey(ev => ev.EmployeeId)
+                   .OnDelete(DeleteBehavior.Cascade); // optional
         }
     }
 }

@@ -11,7 +11,7 @@
         public DateTime ApplicationDate { get; set; }
         public bool IsShortlisted { get; set; } = false;
         public bool IsHired { get; set; } = false;
-
+        public bool IsProcessCompleted { get; set; } = false;
         public int JobPostId { get; set; } 
 
         // Navigation property

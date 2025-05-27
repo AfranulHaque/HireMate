@@ -8,11 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Apis.Calendar.v3" Version="1.69.0.3746" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BackGroundService\HireMate.Notification.Unified.Interface\HireMate.Notification.Unified.Interface.csproj" />
     <ProjectReference Include="..\Common\HireMate.Common\HireMate.Common.csproj" />
+    <ProjectReference Include="..\HireMate.Common.Utils\HireMate.Common.Utils.csproj" />
   </ItemGroup>
 
 </Project>
