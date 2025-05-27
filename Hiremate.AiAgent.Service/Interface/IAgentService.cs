@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Hiremate.AiAgent.Service.Interface
 {
-    internal interface IAgentService
+    public interface IAgentService
     {
+        Task<bool> IsCandidateEligable(string jobDescription, string candidateInfo);
     }
 }

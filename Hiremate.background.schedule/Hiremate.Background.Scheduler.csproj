@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Hiremate.AiAgent.Service\Hiremate.AiAgent.Service.csproj" />
     <ProjectReference Include="..\HireMate.DI\HireMate.DI.csproj" />
   </ItemGroup>
 </Project>

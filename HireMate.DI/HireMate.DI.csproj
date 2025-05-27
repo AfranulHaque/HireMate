@@ -19,7 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AgentApi\AgentApi.csproj" />
     <ProjectReference Include="..\Common\HireMate.Common\HireMate.Common.csproj" />
+    <ProjectReference Include="..\Hiremate.AiAgent.Service\Hiremate.AiAgent.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

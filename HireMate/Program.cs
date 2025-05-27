@@ -10,6 +10,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddPersistenceCollection(builder.Configuration);
 builder.Services.AddExternalCollections();
+builder.Services.AddServiceCollection();
 builder.Services.AddConfigCollections(builder.Configuration);
 
 var app = builder.Build();

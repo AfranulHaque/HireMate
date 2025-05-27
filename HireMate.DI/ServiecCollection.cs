@@ -1,4 +1,8 @@
-﻿using HireMate.DataManagement;
+using System.Runtime;
+using AgentApi.Interface;
+using Hiremate.AiAgent.Service.Service;
+using HireMate.Common;
+using HireMate.DataManagement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,7 +40,7 @@ namespace HireMate.DI
         
         public static IServiceCollection AddServiceCollection(this IServiceCollection services)
         {
-          
+            services.AddScoped<Hiremate.AiAgent.Service.Interface.IAgentService, AgentService>();
             return services;
         }
     }
