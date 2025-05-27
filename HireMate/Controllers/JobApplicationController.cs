@@ -6,9 +6,9 @@ namespace HireMate.Controllers
 {
     public class JobApplicationController : Controller
     {
-        private readonly IJob _jobService;
+        private readonly IJobService _jobService;
 
-        public JobApplicationController(IJob jobService)
+        public JobApplicationController(IJobService jobService)
         {
             _jobService = jobService;
         }
@@ -24,7 +24,6 @@ namespace HireMate.Controllers
         {
             if (ModelState.IsValid)
             {
-                string resumePath = string.Empty;
                 if (resumeFile != null && resumeFile.Length > 0)
                 {
                     var uploadsFolder = "C:\\Uploads";
@@ -38,21 +37,11 @@ namespace HireMate.Controllers
                     {
                         await resumeFile.CopyToAsync(stream);
                     }
-                    resumePath = filePath;
-                }
 
-                var applicantEntity = new DataManagement.Entities.Applicant
-                {
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Email = model.Email,
-                    PhoneNumber = model.PhoneNumber,
-                    ResumeFilePath = resumePath,
-                    ApplicationDate = DateTime.UtcNow,
-                    IsShortlisted = false,
-                    IsHired = false,
-                    JobPostId = model.JobPostId
-                };
+                    model.ResumeFilePath = filePath;
+                } 
+
+                await _jobService.ApplyForJobAsync(model);
 
                 return RedirectToAction("Index", "JobPost");
             }

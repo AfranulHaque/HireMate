@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HireMate.DataManagement.Entities;
+﻿using HireMate.DataManagement.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace HireMate.DataManagement.Repositories
@@ -39,6 +34,12 @@ namespace HireMate.DataManagement.Repositories
             return await GetEntity<Applicant>()
                 .Where(_ => !_.IsProcessCompleted && _.IsShortlisted)
                 .ToListAsync();
+        }
+
+        public async Task AddApplicant(Applicant applicant)
+        {
+            await GetEntity<Applicant>().AddAsync(applicant);
+
         }
     }
 }

@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Http;
-
 namespace HireMate.Common
 {
     public class Applicant
