@@ -1,19 +1,26 @@
 ﻿using HireMate.Common;
+using HireMate.Service;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HireMate.Controllers
 {
     public class JobPostController : Controller
     {
-        // GET: /JobPost
+        private readonly IJobService _jobService;
+
+        public JobPostController(IJobService jobService)
+        {
+            _jobService = jobService;
+        }
+
+
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            JobPost jobPost = new();
-            return View();
+            var jobPosts = await _jobService.GetAllActiveJobPostAsync();
+            return View(jobPosts);
         }
 
-        // GET: /JobPost/Create
         [HttpGet]
         public async Task<IActionResult> Create()
         {
@@ -21,15 +28,20 @@ namespace HireMate.Controllers
             return View(jobPost);
         }
 
-        // POST: /JobPost/Create
-        //[HttpPost]
-        //public async Task<IActionResult> Create()
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-                
-        //    }
-        //    return View();
-        //}
+
+        [HttpPost]
+        public async Task<IActionResult> Create(JobPost model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.IsActive = model.PostedDate <= DateTime.Now;
+
+                await _jobService.AddJobPostAsync(model);
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(model);
+        }
     }
 }

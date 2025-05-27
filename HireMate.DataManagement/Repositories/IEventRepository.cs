@@ -10,5 +10,8 @@ namespace HireMate.DataManagement.Repositories
         Task<List<Applicant>> GetSortedApplicants();
         Task<List<Applicant>> GetRejectedApplicants();
         Task AddApplicant(Applicant applicant);
+        Task<List<JobPost>> GetAllActiveJobPosts();
+        Task<JobPost> GetJobPostById(int jobPostId);
+        Task AddJobPost(JobPost jobPost);
     }
 }
