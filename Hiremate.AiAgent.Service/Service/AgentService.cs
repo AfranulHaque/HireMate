@@ -23,6 +23,17 @@ namespace Hiremate.AiAgent.Service.Service
         
         Your output will be a number only which represents the score of the candidate. The output can be fractional number also. But it must be between 1 to 10.";
 
+
+        private const string InterviewerEligableBasePrompt = @"You are an ai assistant designed to evaluate and sort employees based on how well their skill match a given job description.
+        Your goal is to:
+        - Analyze the job description and understand the key requirements, including skills, experience, and qualification.
+        - Review skillSetDetails of employees.
+        - To find the only suitable interviewer (employees) analyze jobDescription with employees skillSetDetails.
+
+        You will take prompt from the user. The user will provide the job description and a list of employee. 
+        
+        Your output will be a string where only comma seperated employeeId will be there.
+        The output must be comma seperated suitable employeeId.";
         //private const string CandidateEligableEndingPrompt = "";
 
         public AgentService(IOptions<AppSettings> options, IOptions<AiModel> aiModel)
@@ -60,6 +71,60 @@ namespace Hiremate.AiAgent.Service.Service
             return successLLMResponseCount == 0 ? false : (totalLLMScore / successLLMResponseCount) > 6;
         }
 
+        public async Task<List<int>> GetSuitableInteeviewers(string jobDescription, List<EmployeeSkill> employeeSkills)
+        {
+            var messageList = new List<Message>();
+            messageList.Add(new Message { role = "system", content = InterviewerEligableBasePrompt });
+            messageList.Add(new Message { role = "user", content = $"job description: {jobDescription}" });
+            var employees = JsonConvert.SerializeObject(employeeSkills);
+            messageList.Add(new Message { role = "user", content = $"employees: {employees}" });
+
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _appSettings.ApiKey);
+            client.DefaultRequestHeaders.Add("HTTP-Referer", "http://localhost.com"); // Replace with your site or localhost
+            client.DefaultRequestHeaders.Add("X-Title", "HireMate");
+
+            var requestBody = new
+            {
+                model = _aiModel.Gemini,
+                messages = messageList
+            };
+
+            var content = new StringContent(JsonConvert.SerializeObject(requestBody), Encoding.UTF8, "application/json");
+            try
+            {
+                var response = await client.PostAsync(_appSettings.ApiBaseUrl, content);
+                response.EnsureSuccessStatusCode();
+
+                var responseBody = await response.Content.ReadAsStringAsync();
+                dynamic responseData = JsonConvert.DeserializeObject(responseBody);
+                string assistantMessage = responseData?.choices[0]?.message?.content;
+                var employeeIds = new List<int>();
+                if(assistantMessage != null)
+                {
+                    var ids = assistantMessage.Split(',');
+                    foreach(var id in ids)
+                    {
+                        try
+                        {
+                            int empId = int.Parse(id);
+                            employeeIds.Add(empId);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex);
+                        }
+                    }
+                }
+                return employeeIds;
+
+            }
+            catch (Exception ex)
+            {
+                return new List<int>();
+            }
+
+        }
         private async Task<float> CallLLM(string model, List<Message> messages)
         {
             var client = new HttpClient();
