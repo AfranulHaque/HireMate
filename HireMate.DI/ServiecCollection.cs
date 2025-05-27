@@ -13,6 +13,7 @@ namespace HireMate.DI
         public static IServiceCollection AddConfigCollections(this IServiceCollection services, IConfiguration configuration)
         {
             services.Configure<AppSettings>(configuration.GetSection("AppSettings"));
+            services.Configure<AiModel>(configuration.GetSection("AiModel"));
             return services;
         }
 
