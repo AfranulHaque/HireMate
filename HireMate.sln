@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentApi", "AgentApi\AgentA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hiremate.AiAgent.Service", "Hiremate.AiAgent.Service\Hiremate.AiAgent.Service.csproj", "{F5C19885-2C1A-4CEC-9A00-7A098E5E7D5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Common", "Common\HireMate.Common\HireMate.Common.csproj", "{EB202EC9-D6E7-4DAD-ACFA-E3C19991F069}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Common.Utils", "HireMate.Common.Utils\HireMate.Common.Utils.csproj", "{95BC68E4-B40F-4EDD-9227-B5467B785E95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,14 @@ Global
 		{F5C19885-2C1A-4CEC-9A00-7A098E5E7D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5C19885-2C1A-4CEC-9A00-7A098E5E7D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5C19885-2C1A-4CEC-9A00-7A098E5E7D5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB202EC9-D6E7-4DAD-ACFA-E3C19991F069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB202EC9-D6E7-4DAD-ACFA-E3C19991F069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB202EC9-D6E7-4DAD-ACFA-E3C19991F069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB202EC9-D6E7-4DAD-ACFA-E3C19991F069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95BC68E4-B40F-4EDD-9227-B5467B785E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95BC68E4-B40F-4EDD-9227-B5467B785E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95BC68E4-B40F-4EDD-9227-B5467B785E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95BC68E4-B40F-4EDD-9227-B5467B785E95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
