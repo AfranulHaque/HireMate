@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Notification.Unifi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User Access Layer", "User Access Layer", "{4E1AA927-5A7D-42E5-8559-1A230BEFA5D7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{D5268771-CCEC-430A-A02F-7807F42DC4D8}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business layer", "Business layer", "{1B28D0B8-3E23-4093-83E0-9C0EEB2E0FCB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.DataManagement", "HireMate.DataManagement\HireMate.DataManagement.csproj", "{E152D46B-2603-489A-9D31-61EC83B07ABE}"

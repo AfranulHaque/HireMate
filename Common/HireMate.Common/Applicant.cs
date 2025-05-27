@@ -1,4 +1,4 @@
-namespace HireMate.Model.Domain
+namespace HireMate.Common
 {
     public class Applicant
     {

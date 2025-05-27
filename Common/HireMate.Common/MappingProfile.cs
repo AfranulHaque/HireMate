@@ -1,5 +1,4 @@
-﻿using HireMate.Model.Domain;
-using entity = HireMate.DataManagement.Entities;
+﻿using entity = HireMate.DataManagement.Entities;
 
 namespace HireMate.Common
 {
