@@ -11,5 +11,6 @@ namespace Hiremate.AiAgent.Service.Interface
     {
         Task<bool> IsCandidateEligable(string jobDescription, string candidateInfo);
         Task<List<int>> GetSuitableInterviewers(string jobDescription, List<EmployeeSkill> employeeSkills);
+        Task<JobPostAssistantDto> JobPostAssistant(JobPostAssistantDto jobPostAssistantDto);
     }
 }
