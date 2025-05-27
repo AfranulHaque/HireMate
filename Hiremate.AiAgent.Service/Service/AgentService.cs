@@ -71,7 +71,7 @@ namespace Hiremate.AiAgent.Service.Service
             return successLLMResponseCount == 0 ? false : (totalLLMScore / successLLMResponseCount) > 6;
         }
 
-        public async Task<List<int>> GetSuitableInteeviewers(string jobDescription, List<EmployeeSkill> employeeSkills)
+        public async Task<List<int>> GetSuitableInterviewers(string jobDescription, List<EmployeeSkill> employeeSkills)
         {
             var messageList = new List<Message>();
             messageList.Add(new Message { role = "system", content = InterviewerEligableBasePrompt });
