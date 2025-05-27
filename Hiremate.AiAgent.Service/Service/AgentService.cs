@@ -37,8 +37,27 @@ namespace Hiremate.AiAgent.Service.Service
             messageList.Add(new Message { role = "system", content = CandidateEligableBasePrompt });
             messageList.Add(new Message { role = "user", content = $"job description: {jobDescription}" });
             messageList.Add(new Message { role = "user", content = $"candidate information: {candidateInfo}" });
-            var score = await CallLLM(_aiModel.Gpt, messageList);
-            return score > 6;
+            var gptScore = await CallLLM(_aiModel.Gpt, messageList);
+            var claudeScore = await CallLLM(_aiModel.Claude, messageList);
+            var geminiScore = await CallLLM(_aiModel.Gemini, messageList);
+            int successLLMResponseCount = 0;
+            float totalLLMScore = 0;
+            if (gptScore > 0)
+            {
+                totalLLMScore += gptScore;
+                successLLMResponseCount++;
+            }
+            if (claudeScore > 0)
+            {
+                totalLLMScore += claudeScore;
+                successLLMResponseCount++;
+            }
+            if (geminiScore > 0)
+            {
+                totalLLMScore += geminiScore;
+                successLLMResponseCount++;
+            }
+            return successLLMResponseCount == 0 ? false : (totalLLMScore / successLLMResponseCount) > 6;
         }
 
         private async Task<float> CallLLM(string model, List<Message> messages)
@@ -77,7 +96,7 @@ namespace Hiremate.AiAgent.Service.Service
                 {
                     return 0;
                 }
-                
+
             }
             catch (Exception ex)
             {
