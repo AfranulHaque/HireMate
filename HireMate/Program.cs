@@ -1,14 +1,17 @@
-using HireMate.Common;
+using HireMate.DataManagement;
 using HireMate.DI;
+using Microsoft.EntityFrameworkCore;
+using HireMate.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-
+builder.Services.AddPersistenceCollection(builder.Configuration);
 builder.Services.AddExternalCollections();
 builder.Services.AddConfigCollections(builder.Configuration);
+
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
