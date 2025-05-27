@@ -11,6 +11,7 @@ using HireMate.Common;
 using Microsoft.Extensions.Options;
 using HireMate.Common.Utils;
 using HireMate.DataManagement.Repositories;
+using System.Globalization;
 
 namespace HireMate.Notification.Unified.Imp
 {
@@ -24,32 +25,47 @@ namespace HireMate.Notification.Unified.Imp
             _settings = options.Value;
         }
 
-        public async Task SendEmailWithIcsAsync(string toEmail, string subject, string body, CalendarEvent calendarEvent)
+        public async Task SendEmailWithIcsAsync(string toEmail, string subject, string body, string icsContent)
         {
-            var mailMessage = new MailMessage
+            try
             {
-                From = new MailAddress(_settings.User),
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = true
-            };
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress(_settings.User),
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = true
+                };
 
-            mailMessage.To.Add(toEmail);
+                mailMessage.To.Add(toEmail);
 
-            string icsContent = EmailHelper.CreateCalendarEntry(DateTime.Now, DateTime.Now, string.Empty, string.Empty, string.Empty, new List<string>());
-            byte[] icsBytes = Encoding.UTF8.GetBytes(icsContent);
-            var icsAttachment = new Attachment(new MemoryStream(icsBytes), "invite.ics", "text/calendar");
+                byte[] icsBytes = Encoding.UTF8.GetBytes(icsContent);
+                var icsAttachment = new Attachment(new MemoryStream(icsBytes), "invite.ics", "text/calendar");
 
-            mailMessage.Attachments.Add(icsAttachment);
+                mailMessage.Attachments.Add(icsAttachment);
 
-            using var smtpClient = new SmtpClient(_settings.Host, _settings.Port)
+                //using var smtpClient = new SmtpClient(_settings.Host, _settings.Port)
+                //{
+                //    Credentials = new NetworkCredential(_settings.User, _settings.Pass),
+                //    EnableSsl = true
+                //};
+
+                using var smtpClient = new SmtpClient(_settings.Host, _settings.Port)
+                {
+                    Credentials = new NetworkCredential(_settings.User, _settings.Pass),
+                    EnableSsl = true, // or false depending on your SMTP server
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false
+                };
+
+                await smtpClient.SendMailAsync(mailMessage);
+
+            }
+            catch (Exception ex)
             {
-                Credentials = new NetworkCredential(_settings.User, _settings.Pass),
-                EnableSsl = true
-            };
 
-            await smtpClient.SendMailAsync(mailMessage);
+                throw;
+            }
         }
-
     }
 }
