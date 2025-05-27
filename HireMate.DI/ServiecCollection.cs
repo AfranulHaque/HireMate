@@ -46,6 +46,11 @@ namespace HireMate.DI
         public static IServiceCollection AddServiceCollection(this IServiceCollection services)
         {
             services.AddScoped<ICalendarAvailabilityChecker, CalendarAvailabilityChecker>();
+            services.AddScoped<IInterviewNotificationService, InterviewNotificationService>();
+            services.AddScoped<IApplicantProcessService, ApplicantProcessService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IRejectedNotificationService, RejectedNotificationService>();
+
             services.AddScoped<Hiremate.AiAgent.Service.Interface.IAgentService, AgentService>();
             services.AddScoped<IJobService, JobService>();
             return services;

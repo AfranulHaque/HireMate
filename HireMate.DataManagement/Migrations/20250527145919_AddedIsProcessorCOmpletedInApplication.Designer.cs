@@ -4,6 +4,7 @@ using HireMate.DataManagement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HireMate.DataManagement.Migrations
 {
     [DbContext(typeof(HireMateDBContext))]
-    partial class HireMateDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250527145919_AddedIsProcessorCOmpletedInApplication")]
+    partial class AddedIsProcessorCOmpletedInApplication
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,9 +52,6 @@ namespace HireMate.DataManagement.Migrations
                         .HasDefaultValue(false);
 
                     b.Property<bool>("IsProcessCompleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsRejected")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsShortlisted")
