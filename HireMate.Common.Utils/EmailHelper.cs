@@ -1,9 +1,7 @@
-﻿using System.Data.SqlTypes;
-using Ical.Net.CalendarComponents;
+﻿using Ical.Net.CalendarComponents;
 using Ical.Net.DataTypes;
 using Ical.Net;
 using Ical.Net.Serialization;
-using System.Security.AccessControl;
 
 namespace HireMate.Common.Utils
 {

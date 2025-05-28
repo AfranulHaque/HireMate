@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Hiremate.AiAgent.Service.Interface;
+﻿using Hiremate.AiAgent.Service.Interface;
 using HireMate.Common;
 using HireMate.DataManagement.Repositories;
 using HireMate.Notification.Unified.Interface;

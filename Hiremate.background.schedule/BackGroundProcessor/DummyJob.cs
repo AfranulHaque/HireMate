@@ -1,14 +1,6 @@
 ﻿using HireMate.Common;
 using Microsoft.Extensions.Options;
 using Quartz;
-
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Calendar.v3;
-using Google.Apis.Services;
-using Google.Apis.Util.Store;
-using System;
-using HireMate.Notification.Unified.Interface;
-using HireMate.Notification.Unified.Imp;
 using Hiremate.AiAgent.Service.Interface;
 
 namespace Hiremate.Background.Scheduler.BackGroundProcessor

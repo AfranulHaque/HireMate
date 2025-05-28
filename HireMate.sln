@@ -31,8 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Common", "Common\H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Common.Utils", "HireMate.Common.Utils\HireMate.Common.Utils.csproj", "{95BC68E4-B40F-4EDD-9227-B5467B785E95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileRead-test", "FileRead-test\FileRead-test.csproj", "{47244E35-002B-45F9-B2CB-9A777F8EA21A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireMate.Service", "HireMate.Service\HireMate.Service.csproj", "{67E03BC0-2A7F-493F-8BF2-F10CFCC67DAC}"
 EndProject
 Global
@@ -81,10 +79,6 @@ Global
 		{95BC68E4-B40F-4EDD-9227-B5467B785E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95BC68E4-B40F-4EDD-9227-B5467B785E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95BC68E4-B40F-4EDD-9227-B5467B785E95}.Release|Any CPU.Build.0 = Release|Any CPU
-		{47244E35-002B-45F9-B2CB-9A777F8EA21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47244E35-002B-45F9-B2CB-9A777F8EA21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47244E35-002B-45F9-B2CB-9A777F8EA21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47244E35-002B-45F9-B2CB-9A777F8EA21A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{67E03BC0-2A7F-493F-8BF2-F10CFCC67DAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{67E03BC0-2A7F-493F-8BF2-F10CFCC67DAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67E03BC0-2A7F-493F-8BF2-F10CFCC67DAC}.Release|Any CPU.ActiveCfg = Release|Any CPU

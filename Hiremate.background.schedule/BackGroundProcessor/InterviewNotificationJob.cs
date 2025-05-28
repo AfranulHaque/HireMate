@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HireMate.Notification.Unified.Imp;
-using HireMate.Notification.Unified.Interface;
+﻿using HireMate.Notification.Unified.Interface;
 using Quartz;
 
 namespace Hiremate.Background.Scheduler.BackGroundProcessor
