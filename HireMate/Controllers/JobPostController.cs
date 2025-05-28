@@ -37,6 +37,9 @@ namespace HireMate.Controllers
             HttpContext.Session.SetString(sessionId, JsonConvert.SerializeObject(conversation));
             ViewBag.SessionId = sessionId;
             JobPost jobPost = new();
+            jobPost.PostedDate = DateTime.Now;
+            jobPost.ExpiryDate = DateTime.Now.AddDays(7);             
+            
             return View(jobPost);
         }
 

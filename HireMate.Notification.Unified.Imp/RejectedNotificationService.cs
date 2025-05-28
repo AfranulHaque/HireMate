@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HireMate.DataManagement.Repositories;
+﻿using HireMate.DataManagement.Repositories;
 using HireMate.Notification.Unified.Interface;
 
 namespace HireMate.Notification.Unified.Imp

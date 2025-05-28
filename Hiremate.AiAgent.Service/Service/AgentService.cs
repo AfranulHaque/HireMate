@@ -29,7 +29,7 @@ namespace Hiremate.AiAgent.Service.Service
         Your goal is to:
         - Analyze the job description and understand the key requirements, including skills, experience, and qualification.
         - Review skillSetDetails of employees.
-        - To find the only suitable interviewer (employees) analyze jobDescription with employees skillSetDetails.
+        - Emphasize on the comparison between employees' skillSetDetails and jobDescription for selecting suitable interviewers (employees).
 
         You will take prompt from the user. The user will provide the job description and a list of employee. 
         
@@ -44,7 +44,7 @@ namespace Hiremate.AiAgent.Service.Service
           ""location"": """",
           ""requirements"": """",
           ""benefits"": """",
-          ""companyName"": ""XYZ solutions"",
+          ""companyName"": """",
           ""contactEmail"": """",
           ""postedDate"": ""2025-05-27T00:00:00"",
           ""expiryDate"": ""2025-05-27T00:00:00"",
@@ -52,19 +52,57 @@ namespace Hiremate.AiAgent.Service.Service
           ""processInfo"": ""Filling up the jobpost form. Please wait...""
         }";
 
-        private const string JobPostBasePrompt = @"You are an ai assistant designed continue chat based on user propmt.
-        Your goal is to:
-        - Help user to create job post based on user given information.
-        - When user ask only to fill up form or complete jobpost form or filling form then you only response with a single json (jobPostJson).
-        - Other wise continue with normal conversion.
-        - in json processInfo property default value will be fixed.
-        - you have a json skeleton (JobPostJson).
-        - job post response shoud be follow JobPostJson property values even the response is just simple text.
-
-        You will take prompt from the user. The user will provide the basic information about job post. 
+        private const string JobPostBasePrompt = @"You are an ai assistant designed to provide ready-to-post job descriptions based on user propmt.
+        Please keep going until the user’s query is completely resolved, before ending your turn and yielding back to the user. Only terminate your turn when you are sure that the Job Description is fully prepared.
         
-        Your output will be When user ask only to fill up form or complete jobpost form or filling form then you only response with a single json (jobPostJson).
-        Other wise continue with normal conversion.";
+        Your goal is to:
+        - Prepare job description based on the title, experience, skillset requirements and other information provided by the user.
+        - Ensure that the job description is comprehensive and ready to be posted.
+        - update job description based on user feedback.
+
+        The job description should include the following sections:
+        - Title: The title of the job position.
+        - Description: A detailed description of the job responsibilities and expectations.
+        - Location: The location of the job.
+        - Requirements: The skills and qualifications required for the job.
+        - Benefits: The benefits offered by the company for this position.
+        - Company Name: The name of the company offering the job.
+        - Contact Email: The email address for job applications or inquiries.
+
+        At the end of each interaction, check if the user's message indicates satisfaction with your response.
+        The user is considered satisfied if their message contains any of the following phrases (case-insensitive) or similar phrases:
+        - ""job post is ready""
+        - ""job post is complete""
+        - ""job post is good""
+        - ""looks good""
+        - ""Excellent""
+        - ""Good""
+        - ""fill up the form""
+        - ""form fill up""
+        - ""please fill up the form""
+        - ""fill the text boxes""
+
+        When the user is satisfied, you should provide the response in specific JSON format provided here.
+        Here is the format:
+        {
+          ""jobPostId"": 0,
+          ""title"": """",
+          ""description"": """",
+          ""location"": """",
+          ""requirements"": """",
+          ""benefits"": """",
+          ""companyName"": """",
+          ""contactEmail"": """",
+          ""postedDate"": ""2025-05-27T00:00:00"",
+          ""expiryDate"": ""2025-05-27T00:00:00"",
+          ""isActive"": false,
+          ""processInfo"": ""Filling up the jobpost form. Please wait...""
+        }
+            
+        The JSON should not contain any additional text or any 'json' prefix.
+        In the JSON, processInfo and jobPostId property default value is be fixed.
+        Only output this JSON when the user is satisfied. At all other times, do not include or mention JSON.";
+
         private readonly string _apiKey = "";
 
         public AgentService(IOptions<AppSettings> options, IOptions<AiModel> aiModel)
@@ -163,7 +201,7 @@ namespace Hiremate.AiAgent.Service.Service
             
             var messageList = new List<Message>();
             messageList.Add(new Message { role = "system", content = JobPostBasePrompt });
-            messageList.Add(new Message { role = "system", content = $"Json structure: {JobPostJson}" });
+            //messageList.Add(new Message { role = "system", content = $"Json structure: {JobPostJson}" });
             foreach(var chat in jobPostAssistantDto.Conversation)
             {
                 messageList.Add(new Message { role = chat.Role == 1?"assistant":"user", content = chat.Message });

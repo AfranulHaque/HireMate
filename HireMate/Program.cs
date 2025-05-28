@@ -1,4 +1,3 @@
-using HireMate.DataManagement;
 using HireMate.DI;
 using Microsoft.EntityFrameworkCore;
 using HireMate.Common;
@@ -35,6 +34,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=JobPost}/{action=Index}");
 
 app.Run();
