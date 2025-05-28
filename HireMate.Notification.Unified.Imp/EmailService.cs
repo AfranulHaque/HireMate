@@ -19,7 +19,7 @@ namespace HireMate.Notification.Unified.Imp
         public EmailService(IOptions<SmtpSettings> options)
         {
             _settings = options.Value;
-            _pass= Environment.GetEnvironmentVariable("pass");
+            _pass= Environment.GetEnvironmentVariable("Pass");
         }
 
         public async Task SendEmailWithIcsAsync(string toEmail, string subject, string body, string icsContent = null)
