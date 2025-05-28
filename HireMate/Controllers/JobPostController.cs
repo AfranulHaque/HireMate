@@ -25,6 +25,9 @@ namespace HireMate.Controllers
         public async Task<IActionResult> Create()
         {
             JobPost jobPost = new();
+            jobPost.PostedDate = DateTime.Now;
+            jobPost.ExpiryDate = DateTime.Now.AddDays(7);             
+            
             return View(jobPost);
         }
 
