@@ -42,11 +42,23 @@ namespace HireMate.DataManagement.Repositories
                 .Where(_ => !_.IsProcessCompleted && _.IsRejected)
                 .ToListAsync();
         }
-        
+
         public async Task AddApplicant(Applicant applicant)
         {
             await GetEntity<Applicant>().AddAsync(applicant);
 
+        }
+
+        public async Task AddEvent(int empId, DateTime date)
+        {
+            await GetEntity<EmployeeEvent>().AddAsync(
+                new EmployeeEvent
+                {
+                    EmployeeId = empId,
+                    EventStartDate = date,
+                    EventEndDate = date.AddHours(1),
+                }
+                );
         }
     }
 }

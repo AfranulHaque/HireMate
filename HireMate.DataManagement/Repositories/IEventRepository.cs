@@ -10,5 +10,6 @@ namespace HireMate.DataManagement.Repositories
         Task<List<Applicant>> GetSortedApplicants();
         Task<List<Applicant>> GetRejectedApplicants();
         Task AddApplicant(Applicant applicant);
+        Task AddEvent(int empId, DateTime date);
     }
 }
