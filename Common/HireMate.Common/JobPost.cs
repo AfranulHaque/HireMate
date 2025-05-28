@@ -13,5 +13,6 @@ namespace HireMate.Common
         public DateTime PostedDate { get; set; }
         public DateTime? ExpiryDate { get; set; }
         public bool IsActive { get; set; }
+        public string? ProcessInfo { get; set; }
     }
 }
