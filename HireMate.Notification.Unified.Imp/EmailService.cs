@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using HireMate.Common.Utils;
 using HireMate.DataManagement.Repositories;
 using System.Globalization;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace HireMate.Notification.Unified.Imp
 {
@@ -19,10 +20,12 @@ namespace HireMate.Notification.Unified.Imp
     {
         private readonly SmtpSettings _settings;
         public readonly IEventRepository _eventRepository;
+        public readonly string  _pass;
 
         public EmailService(IOptions<SmtpSettings> options)
         {
             _settings = options.Value;
+            _pass= Environment.GetEnvironmentVariable("pass");
         }
 
         public async Task SendEmailWithIcsAsync(string toEmail, string subject, string body, string icsContent = null)
@@ -56,7 +59,7 @@ namespace HireMate.Notification.Unified.Imp
 
                 using var smtpClient = new SmtpClient(_settings.Host, _settings.Port)
                 {
-                    Credentials = new NetworkCredential(_settings.User, _settings.Pass),
+                    Credentials = new NetworkCredential(_settings.User, _pass),
                     EnableSsl = true, // or false depending on your SMTP server
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     UseDefaultCredentials = false

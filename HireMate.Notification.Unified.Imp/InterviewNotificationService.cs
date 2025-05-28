@@ -35,6 +35,7 @@ namespace HireMate.Notification.Unified.Imp
             {
                 var employeeIds = await _agentService.GetSuitableInterviewers(applicant.JobPost.Description, employees.Select(emp => new EmployeeSkill
                 {
+                    Email = emp.Email,
                     EmployeeId = emp.EmployeeId,
                     SkillSetDetails = emp.SkillSetDetails
                 }).ToList());

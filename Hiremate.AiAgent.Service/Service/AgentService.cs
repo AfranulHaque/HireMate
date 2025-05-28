@@ -2,6 +2,7 @@
 using System.Text;
 using Hiremate.AiAgent.Service.Interface;
 using HireMate.Common;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
@@ -64,12 +65,13 @@ namespace Hiremate.AiAgent.Service.Service
         
         Your output will be When user ask only to fill up form or complete jobpost form or filling form then you only response with a single json (jobPostJson).
         Other wise continue with normal conversion.";
-        //private const string CandidateEligableEndingPrompt = "";
+        private readonly string _apiKey = "";
 
         public AgentService(IOptions<AppSettings> options, IOptions<AiModel> aiModel)
         {
             _appSettings = options.Value;
             _aiModel = aiModel.Value;
+            _apiKey = Environment.GetEnvironmentVariable("ApiKey");
         }
 
         public async Task<bool> IsCandidateEligable(string jobDescription, string candidateInfo)
@@ -110,7 +112,7 @@ namespace Hiremate.AiAgent.Service.Service
             messageList.Add(new Message { role = "user", content = $"employees: {employees}" });
 
             var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _appSettings.ApiKey);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
             client.DefaultRequestHeaders.Add("HTTP-Referer", "http://localhost.com"); // Replace with your site or localhost
             client.DefaultRequestHeaders.Add("X-Title", "HireMate");
 
@@ -171,7 +173,7 @@ namespace Hiremate.AiAgent.Service.Service
             //messageList.Add(new Message { role = "user", content = $"employees: {employees}" });
 
             var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _appSettings.ApiKey);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
             client.DefaultRequestHeaders.Add("HTTP-Referer", "http://localhost.com"); // Replace with your site or localhost
             client.DefaultRequestHeaders.Add("X-Title", "HireMate");
 
@@ -210,7 +212,7 @@ namespace Hiremate.AiAgent.Service.Service
         private async Task<float> CallLLM(string model, List<Message> messages)
         {
             var client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _appSettings.ApiKey);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
             client.DefaultRequestHeaders.Add("HTTP-Referer", "http://localhost.com"); // Replace with your site or localhost
             client.DefaultRequestHeaders.Add("X-Title", "HireMate");
 

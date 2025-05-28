@@ -1,7 +1,7 @@
 
 using Hiremate.Background.Scheduler;
 using HireMate.DI;
-
+DotNetEnv.Env.Load(".env");
 var builder = Host.CreateApplicationBuilder(args);
 //builder.Services.AddHostedService<Worker>();
 builder.Services.AddConfigCollections(builder.Configuration);
