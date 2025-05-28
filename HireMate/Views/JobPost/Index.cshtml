@@ -1,0 +1,50 @@
+﻿@model IEnumerable<HireMate.Common.JobPost>
+
+@{
+    ViewData["Title"] = "Job Posts";
+}
+
+<h2>Job Posts</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Post Date</th>
+            <th>End Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    @if (Model != null && Model.Any())
+    {
+        foreach (var post in Model)
+        {
+            <tr>
+                <td>@post.Title</td>
+                <td>@post.Description</td>
+                <td>@post.PostedDate.ToString("yyyy-MM-dd")</td>
+                <td>@(post.ExpiryDate?.ToString("yyyy-MM-dd") ?? "N/A")</td>
+                <td>
+                    <a asp-controller="JobApplication" asp-action="Apply" asp-route-jobPostId="@post.JobPostId">
+                        Apply
+                    </a>
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="4" class="text-center">No job posts found.</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create", "JobPost")"
+   class="btn btn-primary"
+   style="position: fixed; bottom: 30px; right: 30px; z-index: 1000;">
+    Add New Job Post
+</a>

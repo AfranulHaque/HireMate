@@ -1,0 +1,9 @@
+﻿namespace HireMate.Common
+{
+    public class AiModel
+    {
+        public string Gpt { get; set; }
+        public  string Claude { get; set; }
+        public  string Gemini { get; set; }
+    }
+}
