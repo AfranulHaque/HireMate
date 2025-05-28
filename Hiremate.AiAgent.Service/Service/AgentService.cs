@@ -42,12 +42,12 @@ namespace Hiremate.AiAgent.Service.Service
           ""title"": """",
           ""description"": """",
           ""location"": """",
-          ""requirements"": null,
-          ""benefits"": null,
-          ""companyName"": null,
-          ""contactEmail"": null,
-          ""postedDate"": ""0001-01-01T00:00:00"",
-          ""expiryDate"": null,
+          ""requirements"": """",
+          ""benefits"": """",
+          ""companyName"": ""XYZ solutions"",
+          ""contactEmail"": """",
+          ""postedDate"": ""2025-05-27T00:00:00"",
+          ""expiryDate"": ""2025-05-27T00:00:00"",
           ""isActive"": false,
           ""processInfo"": ""Filling up the jobpost form. Please wait...""
         }";
@@ -59,7 +59,7 @@ namespace Hiremate.AiAgent.Service.Service
         - Other wise continue with normal conversion.
         - in json processInfo property default value will be fixed.
         - you have a json skeleton (JobPostJson).
-        - job post response shoud be follow JobPostJson property values
+        - job post response shoud be follow JobPostJson property values even the response is just simple text.
 
         You will take prompt from the user. The user will provide the basic information about job post. 
         
