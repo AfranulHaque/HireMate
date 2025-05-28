@@ -14,8 +14,9 @@ namespace HireMate.Controllers
         }
 
         [HttpGet]
-        public IActionResult Apply()
+        public IActionResult Apply(int jobPostId)
         {
+            ViewBag.JobPostId = jobPostId;
             return View();
         }
 
@@ -26,6 +27,7 @@ namespace HireMate.Controllers
             {
                 if (resumeFile != null && resumeFile.Length > 0)
                 {
+                    var id = HttpContext.GetRouteValue("jobPostId");
                     var uploadsFolder = "C:\\Uploads";
                     Directory.CreateDirectory(uploadsFolder);
                     var fileName = model.FirstName + "_" + Guid.NewGuid()
@@ -39,9 +41,10 @@ namespace HireMate.Controllers
                     }
 
                     model.ResumeFilePath = filePath;
+                    model.ApplicationDate = DateTime.Now;
                 } 
 
-                await _jobService.ApplyForJobAsync(model);
+                await _jobService.SaveApplicantDataAsync(model);
 
                 return RedirectToAction("Index", "JobPost");
             }

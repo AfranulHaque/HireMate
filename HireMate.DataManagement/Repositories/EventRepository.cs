@@ -45,8 +45,31 @@ namespace HireMate.DataManagement.Repositories
 
         public async Task AddApplicant(Applicant applicant)
         {
-            await GetEntity<Applicant>().AddAsync(applicant);
+            await GetEntity<Applicant>()
+                .AddAsync(applicant);
+        }
 
+        public async Task<List<JobPost>> GetAllActiveJobPosts()
+        {
+            var jobPosts = await GetEntity<JobPost>()
+                .Where(_ => _.IsActive)
+                .ToListAsync(); 
+
+            return jobPosts ?? new List<JobPost>();
+        }
+
+        public async Task<JobPost> GetJobPostById(int jobPostId)
+        {
+            var jobPost = await GetEntity<JobPost>()
+                .FirstOrDefaultAsync(_ => _.JobPostId == jobPostId);
+
+            return jobPost ?? new JobPost();
+        }
+
+        public async Task AddJobPost(JobPost jobPost)
+        {
+            await GetEntity<JobPost>()
+                .AddAsync(jobPost);
         }
 
         public async Task AddEvent(int empId, DateTime date)

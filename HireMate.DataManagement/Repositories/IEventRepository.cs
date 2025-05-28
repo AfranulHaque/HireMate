@@ -11,5 +11,8 @@ namespace HireMate.DataManagement.Repositories
         Task<List<Applicant>> GetRejectedApplicants();
         Task AddApplicant(Applicant applicant);
         Task AddEvent(int empId, DateTime date);
+        Task<List<JobPost>> GetAllActiveJobPosts();
+        Task<JobPost> GetJobPostById(int jobPostId);
+        Task AddJobPost(JobPost jobPost);
     }
 }
