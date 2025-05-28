@@ -1,5 +1,4 @@
-﻿
-using HireMate.Common;
+﻿using HireMate.Common;
 
 namespace HireMate.Service
 {

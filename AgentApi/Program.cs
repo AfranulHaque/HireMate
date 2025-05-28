@@ -1,6 +1,5 @@
 using AgentApi.Interface;
 using AgentApi.Service;
-using Microsoft.AspNetCore.Builder;
 
 namespace AgentApi
 {
@@ -30,7 +29,6 @@ namespace AgentApi
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

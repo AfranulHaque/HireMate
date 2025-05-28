@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ical.Net.CalendarComponents;
-
-namespace HireMate.Notification.Unified.Interface
+﻿namespace HireMate.Notification.Unified.Interface
 {
     public interface IEmailService
     {
