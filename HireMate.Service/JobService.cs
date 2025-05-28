@@ -42,7 +42,7 @@ namespace HireMate.Service
             _eventRepository.SaveChanges();
         }
 
-        public async Task<JobPostAssistantDto> JobPostConversion(JobPostAssistantDto jobPostAssistantDto)
+        public async Task<JobPostAssistantDto> JobPostConversation(JobPostAssistantDto jobPostAssistantDto)
         {
             var response = await _agentService.JobPostAssistant(jobPostAssistantDto);
             return response;

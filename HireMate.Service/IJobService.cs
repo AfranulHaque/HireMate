@@ -9,6 +9,6 @@ namespace HireMate.Service
         Task<List<JobPost>> GetAllActiveJobPostAsync();
         Task GetJobPostByIdAsync(int jobPostId);
         Task AddJobPostAsync(JobPost jobPost);
-        Task<JobPostAssistantDto> JobPostConversion(JobPostAssistantDto jobPostAssistantDto);
+        Task<JobPostAssistantDto> JobPostConversation(JobPostAssistantDto jobPostAssistantDto);
     }
 }
