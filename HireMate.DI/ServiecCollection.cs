@@ -1,5 +1,3 @@
-using System.Runtime;
-using AgentApi.Interface;
 using Hiremate.AiAgent.Service.Service;
 using HireMate.Common;
 using HireMate.DataManagement;
