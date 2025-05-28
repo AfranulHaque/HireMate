@@ -48,11 +48,13 @@ namespace HireMate.Notification.Unified.Imp
                     continue;
                 }
                 applicant.IsProcessCompleted = true;
+
                 string icsContent = EmailHelper.CreateCalendarEntry(avaibleEmployeeSlot.Date, avaibleEmployeeSlot.Date.AddHours(1), applicant.JobPost.Title, string.Empty, location, new List<string>()
                 {
                     applicant.Email,
                     avaibleEmployeeSlot.Email
                 });
+                await _eventRepository.AddEvent(avaibleEmployeeSlot.EmployeeId, avaibleEmployeeSlot.Date);
                 await _eventRepository.SaveChangesAsync();
                 await _emailService.SendEmailWithIcsAsync(
                     applicant.Email,
